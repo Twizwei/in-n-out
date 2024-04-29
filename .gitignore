@@ -20,7 +20,6 @@ temp/
 shapes/
 imgs/
 vids/
-*.mp4
 
 stylegan3/results
 eg3d/results
