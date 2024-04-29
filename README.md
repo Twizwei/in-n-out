@@ -22,7 +22,6 @@ Abstract: *3D-aware GANs offer new capabilities for view synthesis while preserv
 - [x] Test/inference
 - [ ] Training
 - [ ] Data preprocessing
-- [ ] 
 
 
 ## Getting started
@@ -44,6 +43,9 @@ bash scripts/run_test_styleclip.sh rednose2 eyeglasses ckpts/rednose2
 ```
 The resutls will be saved at `eg3d/results/rednose2`.
 
+## Training
+
+
 ## Preparing data[TODO]
 
 <!-- 1. Ensure the [Deep3DFaceRecon_pytorch](https://github.com/sicxu/Deep3DFaceRecon_pytorch/tree/6ba3d22f84bf508f0dde002da8fff277196fef21) submodule is properly initialized
@@ -64,37 +66,7 @@ cd dataset_preprocessing/ffhq
 python preprocess_in_the_wild.py --indir=INPUT_IMAGE_FOLDER
 ``` -->
 
-## Training
-
-You can train new networks using `train.py`. For example:
-
-```.bash
-# Train with FFHQ from scratch with raw neural rendering resolution=64, using 8 GPUs.
-python train.py --outdir=~/training-runs --cfg=ffhq --data=~/datasets/FFHQ_512.zip \
-  --gpus=8 --batch=32 --gamma=1 --gen_pose_cond=True
-
-# Second stage finetuning of FFHQ to 128 neural rendering resolution (optional).
-python train.py --outdir=~/training-runs --cfg=ffhq --data=~/datasets/FFHQ_512.zip \
-  --resume=~/training-runs/ffhq_experiment_dir/network-snapshot-025000.pkl \
-  --gpus=8 --batch=32 --gamma=1 --gen_pose_cond=True --neural_rendering_resolution_final=128
-
-# Train with Shapenet from scratch, using 8 GPUs.
-python train.py --outdir=~/training-runs --cfg=shapenet --data=~/datasets/cars_train.zip \
-  --gpus=8 --batch=32 --gamma=0.3
-
-# Train with AFHQ, finetuning from FFHQ with ADA, using 8 GPUs.
-python train.py --outdir=~/training-runs --cfg=afhq --data=~/datasets/afhq.zip \
-  --gpus=8 --batch=32 --gamma=5 --aug=ada --neural_rendering_resolution_final=128 --gen_pose_cond=True --gpc_reg_prob=0.8
-```
-
-Please see the [Training Guide](./docs/training_guide.md) for a guide to setting up a training run on your own data.
-
-Please see [Models](./docs/models.md) for recommended training configurations and download links for pre-trained checkpoints.
-
-
-The results of each training run are saved to a newly created directory, for example `~/training-runs/00000-ffhq-ffhq512-gpus8-batch32-gamma1`. The training loop exports network pickles (`network-snapshot-<KIMG>.pkl`) and random image grids (`fakes<KIMG>.png`) at regular intervals (controlled by `--snap`). For each exported pickle, it evaluates FID (controlled by `--metrics`) and logs the result in `metric-fid50k_full.jsonl`. It also records various statistics in `training_stats.jsonl`, as well as `*.tfevents` if TensorBoard is installed.
-
-References:
+## References:
 1. [EG3D](https://arxiv.org/abs/2112.07945), Chan et al. 2022
 2. [Dynamic NeRF](https://arxiv.org/abs/2105.06468), Gao et al. 2021
 
