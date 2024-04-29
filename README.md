@@ -1,6 +1,6 @@
 ## In-N-Out: Faithful 3D GAN Inversion with Volumetric Decomposition for Face Editing<br><sub>Official PyTorch implementation of the CVPR 2024 paper</sub>
 
-![Teaser image](./assets/teaser.mp4)
+![Teaser image](https://in-n-out-3d.github.io/static/results/Halloween1_demo.mp4)
 
 **In-N-Out: Faithful 3D GAN Inversion with Volumetric Decomposition for Face Editing**<br>
 Yiran Xu, Zhixin Shu, Cameron Smith, Seoung Wug Oh, and Jia-Bin Huang
@@ -79,5 +79,5 @@ This is a research reference implementation and is treated as a one-time code dr
 We use [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/). 
 `eg3d/outdomain/*`, `eg3d/inversion/*`, `eg3d/frames2vid.py`, `eg3d/gen_3d_rgb.py`, `eg3d/vid2frames.py`, `w_avg.pt`, and other materials including the model checkpoints and shell scripts are licensed under the [Adobe Research License](https://git.corp.adobe.com/sooyek/layered-depth-refinement/blob/main/LICENSE.md#adobe-research-license).
 `eg3d/configs/*`, `eg3d/criteria/*`, `eg3d/CLIPStyle/*` are under the [MIT License](https://github.com/danielroich/PTI?tab=MIT-1-ov-file).
-Other files at `eg3d/dnnlib`, `eg3d/gui_utils`, `eg3d/torch_utils`, `eg3d/training`, `eg3d/gen_samples.py`, `eg3d/gen_videos.py`, `eg3d/legacy.py`, are licensed from NVIDIA.
+Other files at `dataset_preprocessing`, `eg3d/dnnlib`, `eg3d/gui_utils`, `eg3d/torch_utils`, `eg3d/training`, `eg3d/gen_samples.py`, `eg3d/gen_videos.py`, `eg3d/legacy.py`, are licensed from NVIDIA.
 Some images were from [Upsplash](http://www.unsplash.com/) under the [standard Unsplash license](https://unsplash.com/license).
