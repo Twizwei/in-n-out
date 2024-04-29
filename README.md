@@ -1,6 +1,6 @@
 ## In-N-Out: Faithful 3D GAN Inversion with Volumetric Decomposition for Face Editing<br><sub>Official PyTorch implementation of the CVPR 2024 paper</sub>
 
-![Teaser image](https://in-n-out-3d.github.io/static/results/Halloween1_demo.mp4)
+![Teaser image](./assets/teaser.jpg)
 
 **In-N-Out: Faithful 3D GAN Inversion with Volumetric Decomposition for Face Editing**<br>
 Yiran Xu, Zhixin Shu, Cameron Smith, Seoung Wug Oh, and Jia-Bin Huang
