@@ -20,7 +20,8 @@ Abstract: *3D-aware GANs offer new capabilities for view synthesis while preserv
 
 ## TODO
 - [x] Test/inference
-- [ ] Training
+- [x] Training
+- [ ] OOD removal
 - [ ] Data preprocessing
 
 
@@ -41,30 +42,19 @@ To edit a video, as an example, run
 cd eg3d
 bash scripts/run_test_styleclip.sh rednose2 eyeglasses ckpts/rednose2
 ```
-The resutls will be saved at `eg3d/results/rednose2`.
-
-## Training
-
+The results will be saved at `eg3d/results/rednose2`.
 
 ## Preparing data[TODO]
+1. Processed data. We provide a dataset of preprocessed data. Please download it and put it at `eg3d/data/wildvideos`
+2. Your own data[TODO].
 
-<!-- 1. Ensure the [Deep3DFaceRecon_pytorch](https://github.com/sicxu/Deep3DFaceRecon_pytorch/tree/6ba3d22f84bf508f0dde002da8fff277196fef21) submodule is properly initialized
-```.bash
-git submodule update --init --recursive
+## Training
+To train our model on a video, as an example, run
 ```
-
-2. Run the following commands
-```.bash
-cd dataset_preprocessing/ffhq
-python runme.py
+cd eg3d
+bash scripts/run_train.sh rednose2 train
 ```
-
-Optional: preprocessing in-the-wild portrait images. 
-In case you want to crop in-the-wild face images and extract poses using [Deep3DFaceRecon_pytorch](https://github.com/sicxu/Deep3DFaceRecon_pytorch/tree/6ba3d22f84bf508f0dde002da8fff277196fef21) in a way that align with the FFHQ data above and the checkpoint, run the following commands 
-```.bash
-cd dataset_preprocessing/ffhq
-python preprocess_in_the_wild.py --indir=INPUT_IMAGE_FOLDER
-``` -->
+The results will be saved at `ckpts/rednose2/train`.
 
 ## References:
 1. [EG3D](https://arxiv.org/abs/2112.07945), Chan et al. 2022
