@@ -32,7 +32,7 @@ eg3d/CLIPStyle/train_faces.pt
 eg3d/CLIPStyle/train_faces_sub.pt
 eg3d/CLIPStyle/train_faces_sub_2.pt
 eg3d/CLIPStyle/test_faces_sub.pt
-eg3d/pretrained_models/*
+eg3d/pretrained_models
 results/
 dataset_preprocessing/ffhq/Deep3DFaceRecon_pytorch
 *out
