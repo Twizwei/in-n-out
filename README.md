@@ -45,7 +45,7 @@ bash scripts/run_test_styleclip.sh rednose2 eyeglasses ckpts/rednose2
 The results will be saved at `eg3d/results/rednose2`.
 
 ## Preparing data[TODO]
-1. Processed data. We provide a dataset of preprocessed data. Please download it and put it at `eg3d/data/wildvideos`
+1. Processed data. We provide a dataset of [preprocessed data](https://drive.google.com/file/d/1PRWZvLxtZexDG4PHTPiyp0WR0VFZoJFD/view?usp=sharing). Please download it and put it at `eg3d/data/wildvideos`
 2. Your own data[TODO].
 
 ## Training
