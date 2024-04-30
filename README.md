@@ -76,8 +76,7 @@ The results will be saved at `ckpts/rednose2/train`.
 This is a research reference implementation and is treated as a one-time code drop. As such, we do not accept outside code contributions in the form of pull requests.
 
 ## License
-We use [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/). 
-`eg3d/outdomain/*`, `eg3d/inversion/*`, `eg3d/frames2vid.py`, `eg3d/gen_3d_rgb.py`, `eg3d/vid2frames.py`, `w_avg.pt`, and other materials including the model checkpoints and shell scripts are licensed under the [Adobe Research License](https://git.corp.adobe.com/sooyek/layered-depth-refinement/blob/main/LICENSE.md#adobe-research-license).
+`eg3d/outdomain/*`, `eg3d/inversion/*`, `eg3d/frames2vid.py`, `eg3d/gen_3d_rgb.py`, `eg3d/vid2frames.py`, `w_avg.pt`, and other materials including the model checkpoints and shell scripts are licensed under the [CC BY-NC](https://creativecommons.org/licenses/by-nc/4.0/).
 `eg3d/configs/*`, `eg3d/criteria/*`, `eg3d/CLIPStyle/*` are under the [MIT License](https://github.com/danielroich/PTI?tab=MIT-1-ov-file).
-Other files at `dataset_preprocessing`, `eg3d/dnnlib`, `eg3d/gui_utils`, `eg3d/torch_utils`, `eg3d/training`, `eg3d/gen_samples.py`, `eg3d/gen_videos.py`, `eg3d/legacy.py`, are licensed from NVIDIA.
+Other files at `dataset_preprocessing`, `eg3d/dnnlib`, `eg3d/gui_utils`, `eg3d/torch_utils`, `eg3d/training`, `eg3d/gen_samples.py`, `eg3d/gen_videos.py`, `eg3d/legacy.py`, are licensed from [NVIDIA](https://github.com/NVlabs/eg3d/blob/main/LICENSE.txt).
 Some images were from [Upsplash](http://www.unsplash.com/) under the [standard Unsplash license](https://unsplash.com/license).
