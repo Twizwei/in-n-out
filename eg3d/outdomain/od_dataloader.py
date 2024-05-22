@@ -17,7 +17,6 @@ intrinsics = torch.tensor([[4.4652, 0.0000, 0.5000],
 class MutilFrameDatasetDynamic(Dataset):
     def __init__(self, data_root, num_frames=None, w=None, w_plus=None, phi=None, yaw_opt=None, pitch_opt=None, use_pre_pose=False):
         self.data_root = data_root
-        
         self.frame_dir = os.path.join(data_root, 'frames')
         self.frame_list = sorted(glob.glob(os.path.join(self.frame_dir, '*png')))
         # remove frame ending with _mask
