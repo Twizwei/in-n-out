@@ -18,12 +18,6 @@ Abstract: *3D-aware GANs offer new capabilities for view synthesis while preserv
   - `conda env create -f environment.yml`
   - `conda activate in-n-out`
 
-## TODO
-- [x] Test/inference
-- [x] Training
-- [x] OOD removal
-- [ ] Data preprocessing
-
 
 ## Getting started
 Please download a pre-trained [EG3D checkpoint](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/research/models/eg3d/files), put it at `./eg3d/pretrained_models`.
