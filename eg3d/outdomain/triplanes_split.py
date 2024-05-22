@@ -227,12 +227,6 @@ class ComposeTriplane(torch.nn.Module):
             blendings[:] *= 1.2
             blendings[ood_pixel_ind] = 0
 
-        # new_colors = new_colors * 0.0
-        # new_densities = new_densities * 0.0
-        # blendings = blendings * 0.0
-        # blendings = torch.ones_like(blendings) * 0.1
-        # blendings = torch.zeros_like(blendings).cuda()
-
         # Forward Pass 3: combine color and density
         if not self.comp_dist_loss:
             dist_loss = 0.0
