@@ -49,7 +49,8 @@ The results will be saved at `eg3d/results/rednose2`.
 2. Your own data. This includes human **face alignment** and will use part of the code from official EG3D repo.
 First, follow EG3D's [instructions](https://github.com/NVlabs/eg3d#preparing-datasets) on setting up `Deep3DFaceRecon_pytorch`.
 ```
-git submodule update --init --recursive
+cd data_preprocessing/ffhq/
+git clone https://github.com/sicxu/Deep3DFaceRecon_pytorch.git
 ```
 Install `Deep3DFaceRecon_pytorch`following the their [instructions](https://github.com/sicxu/Deep3DFaceRecon_pytorch/tree/6ba3d22f84bf508f0dde002da8fff277196fef21).
 
