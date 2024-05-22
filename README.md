@@ -21,7 +21,7 @@ Abstract: *3D-aware GANs offer new capabilities for view synthesis while preserv
 ## TODO
 - [x] Test/inference
 - [x] Training
-- [ ] OOD removal
+- [x] OOD removal
 - [ ] Data preprocessing
 
 
@@ -44,9 +44,35 @@ bash scripts/run_test_styleclip.sh rednose2 eyeglasses ckpts/rednose2
 ```
 The results will be saved at `eg3d/results/rednose2`.
 
-## Preparing data[TODO]
+## Preparing data
 1. Processed data. We provide a dataset of [preprocessed data](https://drive.google.com/file/d/1PRWZvLxtZexDG4PHTPiyp0WR0VFZoJFD/view?usp=sharing). Please download it and put it at `eg3d/data/wildvideos`
-2. Your own data[TODO].
+2. Your own data. This includes human **face alignment** and will use part of the code from official EG3D repo.
+First, follow EG3D's [instructions](https://github.com/NVlabs/eg3d#preparing-datasets) on setting up `Deep3DFaceRecon_pytorch`.
+```
+git submodule update --init --recursive
+```
+Install `Deep3DFaceRecon_pytorch`following the their [instructions](https://github.com/sicxu/Deep3DFaceRecon_pytorch/tree/6ba3d22f84bf508f0dde002da8fff277196fef21).
+
+Also make sure you have their checkpoint file `epoch_20.pth` and place it at `data_preprocessing/ffhq/Deep3DFaceRecon_pytorch/checkpoints/pretrained/epoch_20.pth`.
+
+We provide a scrip `batch_preprocess_in_the_wild.sh` to preprocess your own data of human faces.
+The script accepts following folder tree (either a video or an image):
+```
+InputRoot
+├── VideoName1
+│   ├── frame1
+│   ├── frame2
+...
+│   ├── frameN
+└── ImageName1
+    └── image1
+...
+```
+Run
+```
+bash batch_preprocess_in_the_wild.sh ${InputRoot} ${OutputRoot} ${VideoName}
+bash batch_preprocess_in_the_wild.sh ${InputRoot} ${OutputRoot} ${ImageName}
+```
 
 ## Training
 To train our model on a video, as an example, run
@@ -56,6 +82,24 @@ bash scripts/run_train.sh rednose2 train
 ```
 The results will be saved at `ckpts/rednose2/train`.
 
+To run your data, run
+```
+bash scripts/run_train.sh ${videoname} ${expname}
+```
+
+## OOD object removal
+```
+# change to eg3d
+cd eg3d
+# Here we try to use the pre-trained checkpoint. Suppose it has been placed at ./ckpts/rednose2/
+# Remove the OOD object.
+python outdomain/test_outdomain.py --remove_ood=true --smooth_out=true --network=pretrained_models/ffhqrebalanced512-128.pkl --ckpt_path=./ckpts/rednose2/triplanes.pt --target_path Path-to-rednose2 --latents_path ./ckpts/rednose2/triplanes.pt --outdir ./results/rednose2/eval/ood_removal_smoothed
+# Please replace `Path-to-rednose2` with your own path.
+
+# Save it as a video.
+python frames2vid.py --frames_path ./results/rednose2/eval/ood_removal_smoothed/frames/projected_sr  --output_dir ./results/rednose2/eval/ood_removal_smoothed/frames/projected_sr.mp4
+```
+
 ## References:
 1. [EG3D](https://arxiv.org/abs/2112.07945), Chan et al. 2022
 2. [Dynamic NeRF](https://arxiv.org/abs/2105.06468), Gao et al. 2021
@@ -63,7 +107,7 @@ The results will be saved at `ckpts/rednose2/train`.
 ## Citation
 
 ```
-@inproceedings{Xu2024in,
+@inproceedings{Xu2024inNout,
   author = {Xu, Yiran and Shu, Zhixin and Smith Cameron and Oh, Seoung Wug and Huang, Jia-Bin},
   title = {In-N-Out: Faithful 3D GAN Inversion with Volumetric Decomposition for Face Editings},
   booktitle = {CVPR},
