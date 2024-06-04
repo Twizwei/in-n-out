@@ -29,6 +29,8 @@ wget --content-disposition 'https://api.ngc.nvidia.com/v2/models/org/nvidia/team
 To test our code, we provide a pre-trained checkpoint [here](https://drive.google.com/file/d/18WzDoRXtstpG_IbUmbLURblr8YX3gvR-/view?usp=sharing).
 Please download the checkpoint and place it at `eg3d/ckpts`.
 
+Please download the [data](https://drive.google.com/file/d/1PRWZvLxtZexDG4PHTPiyp0WR0VFZoJFD/view?usp=sharing) and put it at `eg3d/data/wildvideos`.
+
 We also provide all StyleCLIP checkpoints [here](https://drive.google.com/file/d/1IVm-IcKXkAHPu8_eMOZTuKdmxSAZjVU2/view?usp=sharing). Please download them and unzip them at `eg3d/CLIPStyle/mapper_results`. (e.g., `unzip mapper_results.zip -d ./eg3d/CLIPStyle`)
 
 To edit a video, as an example, run
