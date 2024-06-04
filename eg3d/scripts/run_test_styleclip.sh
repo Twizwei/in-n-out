@@ -3,7 +3,7 @@ EditDirection=$2
 ComposeInvRoot=$3
 ComposeInvCkpt=${ComposeInvRoot}/triplanes.pt
 echo ${VideoName}
-TargetPath=./data/wildvideos_eg3d/${VideoName}
+TargetPath=./data/wildvideos/${VideoName}
 OutDir=./results/${VideoName}/eval/${EditDirection}_smoothed
 
 StyleClipCkpt=./mapper_results/${EditDirection}/checkpoints/best_model.pt
