@@ -3,8 +3,8 @@ EditDirection=$2
 ComposeInvRoot=$3
 ComposeInvCkpt=${ComposeInvRoot}/triplanes.pt
 echo ${VideoName}
-TargetPath=/fs/nexus-scratch/yiranx/data/wildvideos_eg3d/${VideoName}
-OutDir=./results/${VideoName}/eval/${EditDirection}_smoothed_0429
+TargetPath=./data/wildvideos_eg3d/${VideoName}
+OutDir=./results/${VideoName}/eval/${EditDirection}_smoothed
 
 StyleClipCkpt=./mapper_results/${EditDirection}/checkpoints/best_model.pt
 LatentPath=${ComposeInvCkpt}
