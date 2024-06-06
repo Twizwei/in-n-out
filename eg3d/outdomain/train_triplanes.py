@@ -2,7 +2,6 @@
 Project given image to the latent space of pretrained network pickle.
 Optimize w_renderer for multiple frames
 
-python outdomain/train_outdomain.py --network=pretrained_models/ffhqrebalanced512-128.pkl --target_path ~/data/wildvideos_eg3d_simple/blunt1/ --latents_path /home/yiranx/sensei-fs-symlink/users/yiranx/optim_multi_dynamic/blunt1_16f_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_nomask_prepose_noUpdatePose/latents.pt --outdir /home/yiranx/sensei-fs-symlink/users/yiranx/optim_multi_dynamic/blunt1_16f_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_nomask_prepose_noUpdatePose/outdomain --num_epochs 500 --lr 1e-1 --weight_lpips 1.0 --batch_size 1 --save_intermediates=True --use_raw_rgb_loss=true --use_mask=False
 """
 
 import os

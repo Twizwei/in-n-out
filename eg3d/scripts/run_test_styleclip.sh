@@ -15,8 +15,8 @@ ExpDir=./results/${VideoName}/styleclip/${EditDirection}
 # get new latent codes
 cd ./CLIPStyle
 printf "Getting new latent codes..."
-python mapper/inference_eg3d.py --exp_dir=../${ExpDir} --checkpoint_path=${StyleClipCkpt} --latents_test_path=../${LatentPath} --camera_params_path=../${CamParaPath} --factor_step 0.06 --save_latents
-python mapper/inference_eg3d.py --exp_dir=../${ExpDir} --checkpoint_path=${StyleClipCkpt} --latents_test_path=../${LatentPath} --camera_params_path=../${CamParaPath} --factor_step 0.06 --save_latents --no_fine_mapper
+python mapper/inference_eg3d.py --exp_dir=../${ExpDir} --checkpoint_path=${StyleClipCkpt} --latents_test_path=../${LatentPath} --camera_params_path=../${CamParaPath} --factor_step 0.04 --save_latents
+python mapper/inference_eg3d.py --exp_dir=../${ExpDir} --checkpoint_path=${StyleClipCkpt} --latents_test_path=../${LatentPath} --camera_params_path=../${CamParaPath} --factor_step 0.04 --save_latents --no_fine_mapper
 # generate results
 cd ../
 printf "Rendering edited results..."

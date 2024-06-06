@@ -2,7 +2,6 @@
 Project given image to the latent space of pretrained network pickle.
 Optimize w_renderer for multiple frames
 
-python outdomain/test_outdomain.py --network=pretrained_models/ffhqrebalanced512-128.pkl --ckpt_path=/fs/nexus-scratch/yiranx/codes/eg3d/eg3d/out/optim_multi_dynamic/rednose2_full_maskeditem_1.0lpips_1.0l2_lr1e-3_deltanorm_1e-3_0.7res_prepose_noUpdatePose/outdomain_lpips_sr_full_1029/triplanes.pt --target_path /fs/nexus-scratch/yiranx/data/wildvideos_eg3d/rednose2/ --latents_path /fs/nexus-scratch/yiranx/codes/eg3d/eg3d/out/optim_multi_dynamic/rednose2_full_maskeditem_1.0lpips_1.0l2_lr1e-3_deltanorm_1e-3_0.7res_prepose_noUpdatePose/latents.pt --outdir /fs/nexus-scratch/yiranx/codes/eg3d/eg3d/out/optim_multi_dynamic/rednose2_16f_maskeditem_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_prepose_noUpdatePose/outdomain_lpips_sr_full_1029/eval/
 """
 
 import os

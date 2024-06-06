@@ -2,7 +2,6 @@
 Project given image to the latent space of pretrained network pickle.
 Optimize w_renderer for multiple frames
 
-python outdomain/train_outdomain_auto.py --network=pretrained_models/ffhqrebalanced512-128.pkl --target_path=/fs/nexus-scratch/yiranx/data/rednose2_32f --latents_path=/fs/nexus-projects/video3dgan/inversion_results/rednose2_32f/latents.pt --outdir=/fs/nexus-projects/video3dgan/inversion_results/rednose2_32f/outdomain_iters20000_0227 --num_epochs_raw 200000 --max_num_iters_raw 20000 --num_epochs_sr 100 --lr 5e-3 --lr_sr 1e-3 --batch_size 1 --save_intermediates=True --use_raw_rgb_loss=true --use_mask=True --lamb_l2_raw_full 1.0 --lamb_l2_raw_o 0.0 --lamb_lpips_raw_full 1.0 --lamb_lpips_raw_o 0.0 --lamb_l2_sr_full 1.0 --lamb_lpips_sr_full 1.0 --lamb_l2_sr_o 0.0 --vis_step 2000 --return_raw_blendw=True --lamb_blendw_loss 1.0 --lamb_blendw_area_loss 1.0 --lamb_blendw_sparse_loss 3.0 --train_raw=true --train_sr=true
 """
 
 import os
@@ -405,7 +404,6 @@ def outdomain_inv(
                 
                 # save intermediate result
                 if save_intermediates and ((global_iters + 1) % vis_step == 0 or global_iters == 0):  # debug
-                # if save_intermediates and data[-1][0] == '/home/yiranx/data/capvideo_simple/11986_16f/frames/frame0203.png':
                     with torch.no_grad():
                         out = compose_triplanes(w_plus_curr, camera_params, phi_curr, masks_tensor)
                         synth_image_full = out['image_raw_full']
@@ -663,8 +661,7 @@ def outdomain_inv(
     f = open(os.path.join(outdir, 'target_frames.txt'), 'w')
     compose_triplanes.eval()
     
-    # ckpt = torch.load('/fs/nexus-scratch/yiranx/codes/eg3d/eg3d/out/optim_multi_dynamic/rednose2_16f_maskeditem_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_prepose_noUpdatePose/outdomain_1017_Better4WeirdGrids/triplanes.pt')
-    # compose_triplanes.load_state_dict(ckpt['compose_triplanes'])
+
     with torch.no_grad():   
         for itr, data in enumerate(eval_dataloader):
             # target_images, masks_tensor, camera_params, w_plus_curr, phi_curr, img_path = data
@@ -701,13 +698,6 @@ def outdomain_inv(
             PIL.Image.fromarray(target_images, 'RGB').save(os.path.join(outdir, 'frames', 'targets', 'target_{0:05d}.png'.format(itr)))
             f.write(os.path.basename(img_path[0]) + '\n')
 
-            # if itr == 0: # visualize canonical frame
-            #     # synth_image = G.synthesis(ws_plus_cano_opt, camera_params_opt_curr)['image']
-            #     synth_image = G.synthesis(ws_plus_cano_opt, camera_params)['image']
-
-            #     synth_image = (synth_image + 1) * (255/2)
-            #     synth_image = synth_image.permute(0, 2, 3, 1).clamp(0, 255).to(torch.uint8)[0].cpu().numpy()
-            #     PIL.Image.fromarray(synth_image, 'RGB').save(os.path.join(outdir, 'frames', 'cano_{0:05d}.png'.format(itr)))
     f.close()
 
     torch.save({

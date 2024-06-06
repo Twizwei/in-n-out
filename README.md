@@ -13,10 +13,14 @@ Abstract: *3D-aware GANs offer new capabilities for view synthesis while preserv
 
 * We recommend Linux for performance and compatibility reasons.
 * The code is built upon NVIDIA's [eg3d repo](https://github.com/NVlabs/eg3d).
-* 64-bit Python 3.8 and PyTorch 1.11.0 (or later). See https://pytorch.org for PyTorch install instructions. We tested our code on Python 3.9.13 and PyTorch 1.12.1.
-* Python libraries: see [environment.yml](./eg3d/environment.yml) for exact library dependencies.  You can use the following commands with Miniconda3 to create and activate your Python environment:
-  - `conda env create -f environment.yml`
-  - `conda activate in-n-out`
+* 64-bit Python 3.8 and PyTorch 1.11.0 (or later). See https://pytorch.org for PyTorch install instructions. We tested our code on Python 3.9 and PyTorch 1.12.1.
+* Python libraries: see [requirements.txt](./requirements.txt) for library dependencies.  
+* Set up environment with `conda`:
+```
+conda create -n in-n-out python=3.9
+conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch
+pip install -r requirements.txt
+```
 
 
 ## Getting started
@@ -29,7 +33,7 @@ wget --content-disposition 'https://api.ngc.nvidia.com/v2/models/org/nvidia/team
 To test our code, we provide a pre-trained checkpoint [here](https://drive.google.com/file/d/18WzDoRXtstpG_IbUmbLURblr8YX3gvR-/view?usp=sharing).
 Please download the checkpoint and place it at `eg3d/ckpts`.
 
-Please download the [data](https://drive.google.com/file/d/1PRWZvLxtZexDG4PHTPiyp0WR0VFZoJFD/view?usp=sharing) and put it at `eg3d/data/wildvideos`.
+Please download the [data](https://drive.google.com/file/d/1PRWZvLxtZexDG4PHTPiyp0WR0VFZoJFD/view?usp=sharing) and unzip it at `eg3d/data/wildvideos`.
 
 We also provide all StyleCLIP checkpoints [here](https://drive.google.com/file/d/1IVm-IcKXkAHPu8_eMOZTuKdmxSAZjVU2/view?usp=sharing). Please download them and unzip them at `eg3d/CLIPStyle/mapper_results`. (e.g., `unzip mapper_results.zip -d ./eg3d/CLIPStyle`)
 
@@ -38,6 +42,7 @@ To edit a video, as an example, run
 cd eg3d
 bash scripts/run_test_styleclip.sh rednose2 eyeglasses ckpts/rednose2
 ```
+Don't worry about the `Missing key(s)` error as `eyeglasses` mapper has no fine mapper. 
 The results will be saved at `eg3d/results/rednose2`.
 
 ## Preparing data

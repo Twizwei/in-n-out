@@ -320,22 +320,6 @@ class TriPlaneItem(torch.nn.Module):
             all_blendings = torch.cat([blendings_coarse, blendings_fine], dim=-2) 
             all_blendings = torch.gather(all_blendings, -2, indices.expand(-1, -1, -1, 1))
             
-        # out = self.renderer.run_model(planes, decoder, pts, ray_directions, rendering_options)
-        # # all_colors = out['rgb'][..., :-1]
-        # # all_blendings = out['rgb'][..., -1:]
-        # all_colors = out['rgb']
-        # all_densities = out['sigma']
-        # pdb.set_trace()
-        # all_colors = all_colors.reshape(batch_size, num_rays,samples_per_ray, all_colors.shape[-1])
-        # all_densities = all_densities.reshape(batch_size, num_rays, samples_per_ray, 1)
-        # all_blendings = all_blendings.reshape(batch_size, num_rays, samples_per_ray, 1)
-
-
-        # _, indices = torch.sort(all_depths, dim=-2)
-        # all_depths = torch.gather(all_depths, -2, indices)
-        # all_colors = torch.gather(all_colors, -2, indices.expand(-1, -1, -1, all_colors.shape[-1]))
-        # all_densities = torch.gather(all_densities, -2, indices.expand(-1, -1, -1, 1))
-        # all_blendings = torch.gather(all_blendings, -2, indices.expand(-1, -1, -1, 1))
         if not return_raw_blendw:
             return all_depths, all_colors, all_densities, all_blendings
         else:

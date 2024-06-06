@@ -2,7 +2,6 @@
 Project given image to the latent space of pretrained network pickle.
 Optimize w_renderer for multiple frames
 
-python outdomain/train_outdomain.py --network=pretrained_models/ffhqrebalanced512-128.pkl --target_path ~/data/wildvideos_eg3d_simple/blunt1/ --latents_path /home/yiranx/sensei-fs-symlink/users/yiranx/optim_multi_dynamic/blunt1_16f_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_nomask_prepose_noUpdatePose/latents.pt --outdir /home/yiranx/sensei-fs-symlink/users/yiranx/optim_multi_dynamic/blunt1_16f_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_nomask_prepose_noUpdatePose/outdomain --num_epochs 500 --lr 1e-1 --weight_lpips 1.0 --batch_size 1 --save_intermediates=True --use_raw_rgb_loss=true --use_mask=False
 """
 
 import os
@@ -654,8 +653,6 @@ def outdomain_inv(
     f = open(os.path.join(outdir, 'target_frames.txt'), 'w')
     compose_triplanes.eval()
     
-    # ckpt = torch.load('/fs/nexus-scratch/yiranx/codes/eg3d/eg3d/out/optim_multi_dynamic/rednose2_16f_maskeditem_1.0lpips_1.0l2_lr5e-3_deltanorm_1e-3_0.7res_prepose_noUpdatePose/outdomain_1017_Better4WeirdGrids/triplanes.pt')
-    # compose_triplanes.load_state_dict(ckpt['compose_triplanes'])
     with torch.no_grad():
         for itr, data in enumerate(eval_dataloader):
             if video_dataset.depth_maps is not None:
